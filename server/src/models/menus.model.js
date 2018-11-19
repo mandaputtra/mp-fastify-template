@@ -8,14 +8,14 @@ module.exports = function (app) {
   const menus = new Schema({
     name: { type: String, required: true },
     slug: { type: String, required: true },
-    menu_roles: {
-      roles_id: { type: String },
+    menu_roles: [{
+      roles_id: { type: Schema.Types.ObjectId, ref : 'Roles' },
       roles_name: { type:  String },
       create: { type: Boolean },
       delete: { type: Boolean },
       update: { type: Boolean },
-      read: { type: Boolean },
-    }
+      read: { tye: Boolean },
+    }]
   }, {
     timestamps: true
   });
