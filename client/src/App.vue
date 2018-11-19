@@ -1,37 +1,38 @@
 <template>
-  <v-app dark>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-
+  <v-app id="app" dark>
+    <app-header :drawer="drawer" @openIt="openDrawer"/>
+    <side-drawer :drawer="drawer"/>
     <v-content>
-      <HelloWorld/>
+      <v-container fluid fill-height>
+        <v-layout justify-center align-center>
+          <v-flex shrink>
+            <router-view/>
+          </v-flex>
+        </v-layout>
+      </v-container>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import AppHeader from '@/components/Header'
+import SideDrawer from '@/components/SideDrawer'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    'app-header': AppHeader,
+    'side-drawer': SideDrawer
   },
-  data () {
-    return {
-      //
+  data: () => ({
+    drawer: true
+  }),
+  methods: {
+    openDrawer () {
+      if (this.drawer === true) {
+        this.drawer = false
+      } else {
+        this.drawer = true
+      }
     }
   }
 }
