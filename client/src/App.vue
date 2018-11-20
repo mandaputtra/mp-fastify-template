@@ -1,7 +1,7 @@
 <template>
-  <v-app id="app" dark>
-    <app-header :drawer="drawer" @openIt="openDrawer"/>
-    <side-drawer :drawer="drawer"/>
+  <v-app id="app">
+    <app-header @openIt="openDrawer"/>
+    <side-drawer :opendrawer="drawer"/>
     <v-content>
       <v-container fluid fill-height>
         <v-layout justify-center align-center>

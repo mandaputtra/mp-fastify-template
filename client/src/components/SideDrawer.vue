@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="drawer" clipped fixed app>
+  <v-navigation-drawer v-model="opendrawer" clipped fixed app>
     <v-list dense>
       <v-list-tile>
         <v-list-tile-action>
@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  props: ['drawer']
+  props: ['opendrawer']
 }
 </script>
 
