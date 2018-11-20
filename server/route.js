@@ -1,5 +1,5 @@
 async function routes (fastify, options) {
-  const database = fastify.mongo.db('db')
+  const database = fastify.mongo.db('server_fv')
   const collection = database.collection('test')
 
   fastify.get('/', async (request, reply) => {

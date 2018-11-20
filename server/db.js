@@ -1,11 +1,11 @@
 const fastifyPlugin = require('fastify-plugin')
-const MongoClient = require('mongodb').MongoClient
+const mongoose = require('mongooose')
 
 async function dbConnector (fastify, options) {
   const url = options.url
   delete options.url
 
-  const db = await MongoClient.connect(url, options)
+  const db = await mongoose.connect(url, options)
   fastify.decorate('mongo', db)
 }
 

@@ -4,12 +4,11 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "fastify start index.js"
   },
   "dependencies": {
     "fastify": "^1.13.0",
-    "fastify-mongoose": "^0.2.1",
     "fastify-plugin": "^1.2.1",
-    "mongodb": "^3.1.10"
+    "mongoose": "^5.3.12"
   }
 }
