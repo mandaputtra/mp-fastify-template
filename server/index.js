@@ -1,14 +1,19 @@
 const fastify = require('fastify')({
-  logger: true
+  logger: {
+    prettyPrint: true
+  }
 })
 
+// Registering cors
+fastify.register(require('fastify-cors'))
+
 // Registering the database
-fastify.register(require('./db'), {
-  url: 'mongodb://localhost:27017/'
+fastify.register(require('./plugins/db'), {
+  url: 'mongodb://localhost:27017/server_vf'
 })
 
 // Regitering the route
-fastify.register(require('./route'))
+fastify.register(require('./routes/v1'))
 
 // Generate server
 fastify.listen(3000, function (err, address) {

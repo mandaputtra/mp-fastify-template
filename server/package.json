@@ -4,10 +4,11 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "fastify start index.js"
+    "start": "nodemon index.js"
   },
   "dependencies": {
     "fastify": "^1.13.0",
+    "fastify-cors": "^0.2.0",
     "fastify-plugin": "^1.2.1",
     "mongoose": "^5.3.12"
   }
