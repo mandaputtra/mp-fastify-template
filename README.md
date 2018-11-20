@@ -1,5 +1,5 @@
 # vf-cms
-A CMS starter with vuejs and feathersjs (WIP)
+A CMS starter with vuejs and fastify (WIP)
 
 even I cant spell the right name of this project
 
