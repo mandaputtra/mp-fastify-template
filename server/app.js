@@ -7,9 +7,9 @@ module.exports = function (fastify, opts, next) {
   // Place here your custom code!
 
   // mongoose plugins connect database
-  // fastify.register(require('./our-db-connector'), {
-  //   url: 'mongodb://localhost:27017/'
-  // })
+  fastify.register(require('./our-db-connector'), {
+    url: 'mongodb://localhost:27017/'
+  })
 
   // Do not touch the following lines
 
