@@ -10,10 +10,8 @@ module.exports = async function(fastify, opts) {
   });
 
   fastify.route({
-    method: "GET",
+    method: "POST",
     url: "/register",
-    handler: (req, res) => {
-      fastify.someSupport();
-    }
+    handler: AuthController.register
   });
 };

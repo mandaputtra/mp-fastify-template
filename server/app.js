@@ -9,7 +9,7 @@ module.exports = function(fastify, opts, next) {
 
   fastify.register(require("fastify-cors"));
 
-  // connect and git options to databse to database
+  // connect and get options to databse
   mongoose.connect(
     "mongodb://localhost:27017/vfcms",
     {

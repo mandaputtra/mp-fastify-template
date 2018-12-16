@@ -4,6 +4,6 @@
 
 module.exports = async function(fastify, opts) {
   fastify.get("/", async function(request, reply) {
-    return fastify.someSupport();
+    reply.code(200).send({ message: "API ready!" });
   });
 };

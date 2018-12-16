@@ -15,11 +15,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bee-queue": "^1.2.2",
     "fastify": "^1.11.0",
     "fastify-autoload": "^0.5.0",
     "fastify-cli": "^0.26.2",
     "fastify-cors": "^0.2.0",
     "fastify-plugin": "^1.2.0",
+    "fastify-ws": "^1.0.0",
+    "ioredis": "^4.3.0",
     "mongoose": "^5.3.16"
   },
   "devDependencies": {

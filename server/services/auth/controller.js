@@ -1,11 +1,14 @@
 "use strict";
 
-const fastify = require("fastify");
+// Remember to check post or get request, always look
+// at the routes in index
 
-const login = async (request, reply) => {
-  return "hii";
-};
+async function login(request, reply) {
+  return this.someSupport();
+}
 module.exports.login = login;
 
-const register = async (request, reply) => {};
+async function register(request, reply) {
+  reply.send({ hello: "world" });
+}
 module.exports.register = register;
