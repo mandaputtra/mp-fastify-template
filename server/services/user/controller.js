@@ -12,7 +12,7 @@ async function register(req, reply) {
   const { name, email, password } = req.body
   let err;
   [err, user] = await to(User.create({ name, email, password }))
-  if(err) reply.code(200).send('really?')
+  if(err) reply.code(200).send('something wrong! maybe you?')
   reply
     .code(200)
     .send({ data: user })
