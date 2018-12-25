@@ -9,7 +9,12 @@ fastify.register(require("./plugins/db"), {
   url: "mongodb://localhost:27017/vfcms"
 });
 
+// Route register here
+// you can had all you routes at one file or separate
+// its up to you
 fastify.register(require("./services/root"));
+fastify.register(require("./services/user"));
+
 
 fastify.listen(3000, function(err, address) {
   if (err) {
