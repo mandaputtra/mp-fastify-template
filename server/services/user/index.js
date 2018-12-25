@@ -6,6 +6,12 @@ async function routes(fastify, options) {
     url: '/user',
     handler: UserController.login
   })
+
+  fastify.route({
+    method: 'POST',
+    url: '/register',
+    handler: UserController.register
+  })
 }
 
 module.exports = routes;
