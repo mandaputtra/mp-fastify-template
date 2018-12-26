@@ -26,7 +26,8 @@ The roadmap :
 
 ### Back-end
   - [ ] Implement fastify service per module
-  - [ ] Auth
+  - [x] Auth (login/register)
+  - [ ] User permissions
   - [ ] Database setup
   - [ ] Provide ERD for the database
   - [ ] Provide API to front-end
