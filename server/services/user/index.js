@@ -4,8 +4,8 @@ const { registerValidation } = require('./validation')
 
 async function routes(fastify, options) {
   fastify.route({
-    method: 'GET',
-    url: '/user',
+    method: 'POST',
+    url: '/login',
     handler: UserController.login
   })
 
