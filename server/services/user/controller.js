@@ -1,5 +1,6 @@
 const { User } = require('../../models');
-const { to } = require('../../plugins/errorHandler')
+const { to } = require('../../plugins/errorHandler');
+const bcrypt = require('bcrypt');
 
 async function login(req, reply) {
   reply
@@ -9,12 +10,22 @@ async function login(req, reply) {
 module.exports.login = login;
 
 async function register(req, reply) {
-  const { name, email, password } = req.body
-  let err;
-  [err, user] = await to(User.create({ name, email, password }))
-  if(err) reply.code(200).send('something wrong! maybe you?')
-  reply
-    .code(200)
-    .send({ data: user })
+  let { name, email, password } = req.body
+  // password hash
+  let err, hash, salt;
+  // generate salt for password
+  [err, salt] = await to(bcrypt.genSalt(10));
+  if(err) throw new Error(err);
+  // hash password
+  [err, hash] = await to(bcrypt.hash(password, salt));
+  if(err) throw new Error(err);
+  this.jwt
+  let user;
+  [err, user] = await to(User.create({ name, email, password: hash }));
+  if(err) reply.send({ message: 'user with that email already created' });
+  if(user) {
+    const token = this.jwt.sign({ user_id: user._id })
+    reply.code(200).send({ data: user, token: `Bearer ${token}` })
+  };
 };
 module.exports.register = register;
