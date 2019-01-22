@@ -1,8 +1,8 @@
 const Joi = require('joi')
 const UserController = require('./controller')
-const { registerValidation } = require('./validation')
+const {registerValidation} = require('./validation')
 
-async function routes(fastify, options) {
+async function routes(fastify) {
   fastify.route({
     method: 'POST',
     url: '/login',
@@ -18,4 +18,4 @@ async function routes(fastify, options) {
   })
 }
 
-module.exports = routes;
+module.exports = routes

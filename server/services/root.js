@@ -1,11 +1,11 @@
-async function routes(fastify, options) {
+async function routes(fastify) {
   fastify.route({
     method: 'GET',
     url: '/',
     handler: (req, reply) => {
-      reply.code(200).send({ api: "ready"})
+      reply.code(200).send({api: 'ready'})
     }
   })
 }
 
-module.exports = routes;
+module.exports = routes
