@@ -1,8 +1,8 @@
-// contains route and middleware
+// Contains route and middleware
 
 const Joi = require('joi')
 const UserController = require('./controller')
-const { register, login } = require('./validation')
+const {register, login} = require('./validation')
 
 async function routes(fastify) {
   fastify.route({
@@ -16,7 +16,7 @@ async function routes(fastify) {
   fastify.route({
     method: 'POST',
     url: '/register',
-    schema: registerValidation,
+    schema: register,
     schemaCompiler: schema => data => Joi.validate(data, schema),
     handler: UserController.register
   })

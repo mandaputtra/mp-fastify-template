@@ -6,8 +6,7 @@
   "scripts": {
     "lint": "xo --ext .js",
     "lint:fix": "xo --fix --ext .js",
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node index.js"
   },
   "keywords": [
     "fastify",
@@ -31,8 +30,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint:fix",
-      "pre-push": "npm test"
+      "pre-commit": "npm run lint:fix"
     }
   },
   "xo": {
@@ -40,6 +38,7 @@
     "semicolon": false
   },
   "devDependencies": {
+    "chokidar": "^2.1.5",
     "husky": "^1.3.1",
     "xo": "^0.24.0"
   }

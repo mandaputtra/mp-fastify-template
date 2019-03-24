@@ -1,12 +1,37 @@
+//  config path
+const {config} = require('./config/config')
+//  check on dev or on production
+const production =  config.env === 'production'
+
 const fastify = require('fastify')({
   logger: {
-    prettyPrint: true,
+    prettyPrint: !production,
     prettifier: require('pino-pretty')
   }
 })
 
-const {config} = require('./config/config')
 
+// file watcher only on dev mode prefer using chokidar
+const chokidar = require('chokidar')
+const path = require('path')
+if (!production) {
+  chokidar.watch([
+    'config',
+    'models',
+    'plugins',
+    'services',
+    'utils',
+  ], {
+    ignored: /[\\\/](node_modules|public|__tests__)[\\\/]/
+  })
+  .on('ready', () => fastify.log.info('Watch file ready!'))
+  .on('change', (path) => {
+    fastify.log.info(`Clearing ${path} module cache from server`)
+    if (require.cache[path]) delete require.cache[path]
+  })
+}
+
+// cors
 fastify.register(require('fastify-cors'), {
   origin: true
 })

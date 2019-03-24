@@ -13,5 +13,8 @@ config.dbpass = env.DB_PASSWORD || 'secret'
 // App config
 config.port = env.APP_PORT || '3000'
 
+// env config
+config.env = env.ENV || 'production'
+
 module.exports.config = config
 
