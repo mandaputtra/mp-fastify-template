@@ -1,7 +1,7 @@
-//  config path
-const {config} = require('./config/config')
-//  check on dev or on production
-const production =  config.env === 'production'
+//  Config path
+//  Check on dev or on production
+const production = config.env === 'production'
+const chokidar = require('chokidar')
 
 const fastify = require('fastify')({
   logger: {
@@ -9,29 +9,30 @@ const fastify = require('fastify')({
     prettifier: require('pino-pretty')
   }
 })
+const {config} = require('./config/config')
 
-
-// file watcher only on dev mode prefer using chokidar
-const chokidar = require('chokidar')
-const path = require('path')
+// File watcher only on dev mode prefer using chokidar
 if (!production) {
   chokidar.watch([
     'config',
     'models',
     'plugins',
     'services',
-    'utils',
+    'utils'
   ], {
+    //  eslint-disable-next-line no-useless-escape
     ignored: /[\\\/](node_modules|public|__tests__)[\\\/]/
   })
-  .on('ready', () => fastify.log.info('Watch file ready!'))
-  .on('change', (path) => {
-    fastify.log.info(`Clearing ${path} module cache from server`)
-    if (require.cache[path]) delete require.cache[path]
-  })
+    .on('ready', () => fastify.log.info('Watch file ready!'))
+    .on('change', path => {
+      fastify.log.info(`Clearing ${path} module cache from server`)
+      if (require.cache[path]) {
+        delete require.cache[path]
+      }
+    })
 }
 
-// cors
+// Cors
 fastify.register(require('fastify-cors'), {
   origin: true
 })
