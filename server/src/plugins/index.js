@@ -1,4 +1,4 @@
-const { to } = require('./handler')
+const {to} = require('./handler')
 
 module.exports = {
   to

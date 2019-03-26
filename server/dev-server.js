@@ -5,7 +5,11 @@
 const cp = require('child_process')
 const path = require('path')
 const chokidar = require('chokidar')
-const chalk = require('chalk')
+const pino = require('pino')
+
+const logger = pino({
+  prettyPrint: {colorize: true}
+})
 
 const exec = path.resolve(__dirname + '/www.js')
 // Initialize watcher.
@@ -17,12 +21,12 @@ const watcher = chokidar.watch(__dirname + '/src', {
 })
 
 watcher.once('ready', () => {
-  console.log('\n', chalk.magenta(' => Initialize app ... => '))
+  logger.info('=====> Initialize app ... =====> ')
   const watched = watcher.getWatched()
   Object.keys(watched).forEach(k => {
     const values = watched[k]
     values.forEach(p => {
-      console.log(chalk.yellow(path.resolve(k + '/' + p)))
+      logger.info(path.resolve(k + '/' + p))
     })
   })
 
@@ -34,7 +38,7 @@ watcher.once('ready', () => {
     })
 
     k.on('error', err => {
-      console.log(' => Server error =>', err.stack || err)
+      logger.fatal(' => Server error =>', err.stack || err)
     })
 
     k.stdout.setEncoding('utf8')
@@ -59,7 +63,7 @@ watcher.once('ready', () => {
         // Arbitrary timeout seems necessary => even after the 'close' event, still get
         // some port conflicts, not entirely sure why
         k = launch()
-        console.log(' => New process pid =>', k.pid)
+        logger.debug(' => New process pid =>', k.pid)
       }, 300)
     })
     k.kill('SIGINT')
@@ -67,20 +71,20 @@ watcher.once('ready', () => {
 
   process.stdin.on('data', d => {
     if (String(d).trim() === 'rs') {
-      console.log(' => relaunching dev server')
+      logger.info(' => relaunching dev server')
       killAndRestart()
     }
   })
 
   watcher.on('add', path => {
-    console.log(' => watched file added =>', path)
-    console.log(' => restarting server')
+    logger.info(' => watched file added =>', path)
+    logger.info(' => restarting server')
     killAndRestart()
   })
 
   watcher.on('change', path => {
-    console.log(' => watched file changed =>', path)
-    console.log(' => restarting server')
+    logger.info(' => watched file changed =>', path)
+    logger.info(' => restarting server')
     killAndRestart()
   })
 })

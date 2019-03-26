@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const bcryptP = require('bcrypt-promise')
 
 const {User} = require('../../../models')
-const {to} = require('../../../plugins/')
+const {to} = require('../../../plugins')
 
 async function login(req, reply) {
   const {email, password} = req.body

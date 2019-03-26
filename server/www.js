@@ -4,12 +4,11 @@
 //  Check on dev or on production
 const {config} = require('./src/config/config')
 
-const production = config.env === 'production'
 // Init fastify
 // eslint-disable-next-line import/order
 const fastify = require('fastify')({
   logger: {
-    prettyPrint: !production,
+    prettyPrint: false,
     prettifier: require('pino-pretty')
   }
 })

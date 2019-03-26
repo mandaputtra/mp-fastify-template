@@ -1,1 +1,1 @@
-// if middleware used my many services please use plugins instead
+// If middleware used my many services please use plugins instead
