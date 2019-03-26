@@ -1,8 +1,8 @@
 const bcrypt = require('bcrypt')
 const bcryptP = require('bcrypt-promise')
 
-const {User} = require('../../models')
-const {to} = require('../../plugins/handler')
+const {User} = require('../../../models')
+const {to} = require('../../../plugins/')
 
 async function login(req, reply) {
   const {email, password} = req.body
@@ -44,7 +44,7 @@ async function register(req, reply) {
   let user;
   [err, user] = await to(User.create({name, email, password: hash}))
   if (err) {
-    reply.send({message: 'user with that email already created'})
+    reply.code(452).send({message: 'user with that email already created'})
   }
 
   if (user) {
