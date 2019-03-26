@@ -44,6 +44,7 @@ fastify.register(require('fastify-jwt'), {
 // you can had all you routes at one file or separate
 // its up to you
 fastify.register(require('./src/services/root'))
+fastify.register(require('./src/services/role'))
 fastify.register(require('./src/services/user'))
 
 start()
