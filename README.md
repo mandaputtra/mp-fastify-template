@@ -10,7 +10,7 @@ For the sake of learn I'll use fastify and vuejs together.
 The roadmap :
 
 ### Front-end: 
-  - [ ] Login page
+  - [x] Login page
   - [ ] Admin page
   - [ ] Other than Admin page
   - [ ] Chart
