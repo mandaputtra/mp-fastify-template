@@ -4,11 +4,12 @@
 //  Check on dev or on production
 const {config} = require('./src/config/config')
 
+const production = config.env === 'production'
 // Init fastify
 // eslint-disable-next-line import/order
 const fastify = require('fastify')({
   logger: {
-    prettyPrint: false,
+    prettyPrint: !production,
     prettifier: require('pino-pretty')
   }
 })
@@ -33,12 +34,7 @@ fastify.register(require('./src/plugins/db'), {
   url: `mongodb://${config.dbhost}:${config.dbport}/${config.dbname}`
 })
 // JWT registration
-fastify.register(require('fastify-jwt'), {
-  secret: 'supersecret',
-  decode: {complete: true},
-  sign: {algorithm: 'HS384'},
-  maxAge: 100000
-})
+fastify.register(require('./src/plugins/jwt-verify'))
 
 // Route register here
 // you can had all you routes at one file or separate

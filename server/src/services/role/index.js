@@ -5,6 +5,7 @@ async function routes(fastify) {
   fastify.route({
     method: 'GET',
     url: '/role/create',
+    preValidation: [fastify.verifyjwt],
     handler: RoleController.create
   })
 }

@@ -6,6 +6,14 @@ async function routes(fastify) {
       reply.code(200).send({api: 'ready'})
     }
   })
+
+  fastify.route({
+    method: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    url: '*',
+    handler: (req, reply) => {
+      reply.code(404).send({not: 'found'})
+    }
+  })
 }
 
 module.exports = routes

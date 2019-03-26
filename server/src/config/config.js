@@ -16,5 +16,11 @@ config.port = env.APP_PORT || '3000'
 // Env config
 config.env = env.ENV || 'production'
 
+// JWT config
+config.jwt = {
+  expiresIn: env.JWT_EXPIRESIN || '1d',
+  maxAge: env.JWT_EXPIRESIN || '1d'
+}
+
 module.exports.config = config
 
