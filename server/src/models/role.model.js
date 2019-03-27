@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 // eslint-disable-next-line new-cap
 const RoleSchema = mongoose.Schema({
-  roleName: {type: String, required: true, index: true},
-  roleScope: [] // 1: get 2: update 3: delete 4: { up to you }
+  name: {type: String, required: true, index: true},
+  role: [] // 1: get 2: update 3: delete 4: { up to you }
 }, {timestamp: true})
 
 module.exports = mongoose.model('Users', RoleSchema)

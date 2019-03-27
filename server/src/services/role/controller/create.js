@@ -11,7 +11,7 @@ async function create(req, reply) {
     })
   }
 
-  reply.code(200).send({msg: `Role ${roleData.roleName} Created!`})
+  reply.code(200).send({msg: `Role ${roleData.name} Created!`})
 }
 
 module.exports.create = create
