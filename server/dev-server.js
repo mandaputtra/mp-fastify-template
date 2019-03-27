@@ -64,7 +64,7 @@ watcher.once('ready', () => {
         // some port conflicts, not entirely sure why
         k = launch()
         logger.debug(' => New process pid =>', k.pid)
-      }, 1000)
+      }, 300)
     })
     k.kill('SIGINT')
   }

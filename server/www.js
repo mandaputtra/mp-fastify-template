@@ -40,7 +40,6 @@ fastify.register(require('./src/plugins/db'), {
 })
 // JWT registration
 fastify.register(require('./src/plugins/jwt-verify'))
-fastify.register(require('./src/plugins/jwt-decode'))
 
 // Route register here
 // you can had all you routes at one file or separate

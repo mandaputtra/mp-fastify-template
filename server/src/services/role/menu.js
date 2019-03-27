@@ -1,4 +1,6 @@
 // ALL MENU GOES HERE, Use number to indicate menu
+//  menu are choosen from first word before underscore
+//  so KILLTHEBIRD_DELETE will produce KILLTHEBIRD
 
 module.exports = {
   //  User

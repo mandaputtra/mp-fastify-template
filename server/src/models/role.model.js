@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 // eslint-disable-next-line new-cap
 const RoleSchema = mongoose.Schema({
-  name: {type: String, required: true, index: true},
+  name: {type: String, required: true, index: true, unique: true},
   role: [] // 1: get 2: update 3: delete 4: { up to you }
 }, {timestamp: true})
 
-module.exports = mongoose.model('Users', RoleSchema)
+module.exports = mongoose.model('Roles', RoleSchema)
 
 /* Depends on what you set a role can access on what menu :
 
