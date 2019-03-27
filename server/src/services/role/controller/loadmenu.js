@@ -3,6 +3,7 @@ const {to} = require('../../../plugins')
 // Models
 const {User} = require('../../../models')
 const {Role} = require('../../../models')
+const {getMenuName} = require('../../../utils')
 
 async function loadmenu(req, reply) {
   // Get user role and appropriate user menu
@@ -23,7 +24,7 @@ async function loadmenu(req, reply) {
     return reply.code(200).send({
       msg: {
         allMenu: menu,
-        menuName: Object.keys(menu)
+        menuName: getMenuName(Object.keys(menu))
       }
     })
   }
@@ -46,7 +47,7 @@ async function loadmenu(req, reply) {
   reply.code(200).send({
     msg: {
       allMenu: userMenu,
-      menuName: Object.keys(userMenu)
+      menuName: getMenuName(Object.keys(userMenu))
     }
   })
 }
