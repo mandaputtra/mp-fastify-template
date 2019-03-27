@@ -29,12 +29,18 @@ function start() {
 fastify.register(require('fastify-cors'), {
   origin: true
 })
+// Helmet
+fastify.register(require('fastify-helmet'), {
+  hidePoweredBy: {setTo: 'Go 1.12.1'},
+  xssFilter: {setOnOldIE: true}
+})
 // Database registrastion
 fastify.register(require('./src/plugins/db'), {
   url: `mongodb://${config.dbhost}:${config.dbport}/${config.dbname}`
 })
 // JWT registration
 fastify.register(require('./src/plugins/jwt-verify'))
+fastify.register(require('./src/plugins/jwt-decode'))
 
 // Route register here
 // you can had all you routes at one file or separate

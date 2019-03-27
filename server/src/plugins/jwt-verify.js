@@ -4,11 +4,14 @@ const {config} = require('../config/config')
 async function verifyjwt(fastify) {
   fastify.register(require('fastify-jwt'), {
     secret: 'supersecret',
+    decode: {complete: true},
     sign: {
+      issuer: 'api.vfcms.company',
       algorithm: 'HS384',
       expiresIn: config.jwt.expiresIn
     },
     verify: {
+      issuer: 'api.vfcms.company',
       maxAge: config.jwt.maxAge
     }
   })
