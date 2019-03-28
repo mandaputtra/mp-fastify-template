@@ -40,7 +40,14 @@ fastify.register(require('./src/plugins/db'), {
 })
 // JWT registration
 fastify.register(require('./src/plugins/jwt-verify'))
-
+// UNDER PRESSURE!
+fastify.register(require('under-pressure'), {
+  maxEventLoopDelay: 1000,
+  maxHeapUsedBytes: 100000000,
+  maxRssBytes: 100000000,
+  message: 'Under pressure!',
+  retryAfter: 50
+})
 // Route register here
 // you can had all you routes at one file or separate
 // its up to you
