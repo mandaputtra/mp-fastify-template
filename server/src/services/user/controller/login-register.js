@@ -31,7 +31,10 @@ async function login(req, reply) {
     user.password = ''
 
     // Generate session secret for crsf
-    req.session.scrt = secret
+    if (!req.session.scrt) {
+      req.session.scrt = secret
+    }
+
     reply
       .setCookie('tks', token, {
         path: '/'
