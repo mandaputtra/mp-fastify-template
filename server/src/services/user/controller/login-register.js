@@ -9,7 +9,7 @@ async function login(req, reply) {
   let err
   let pass
   let user
-  [err, user] = await to(User.findOne({email}))
+  [err, user] = await to(User.findOne({email}, 'name role email _id password'))
   if (err) {
     reply.send('your email or password wrong!')
   }
@@ -21,9 +21,15 @@ async function login(req, reply) {
   }
 
   if (pass) {
-    const token = this.jwt.sign({userId: user._id})
+    const token = this.jwt.sign({
+      userId: user._id,
+      role: user.role
+    })
     user.password = ''
-    reply.code(200).send({data: user, token: `Bearer ${token}`})
+    reply
+      .setCookie('tks', token)
+      .code(200)
+      .send({data: user})
   } else {
     reply.code(401).send('your email or password wrong!')
   }

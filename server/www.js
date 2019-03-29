@@ -1,13 +1,10 @@
 #!/usr/bin/env node
 
-//  Config path
-//  Check on dev or on production
-
-const production = config.env === 'production'
 // Init fastify
 const fastify = require('fastify')({
   logger: {
-    prettyPrint: !production,
+    level: 'trace',
+    prettyPrint: false,
     prettifier: require('pino-pretty')
   }
 })
@@ -34,8 +31,9 @@ const abcache = require('abstract-cache')({
     options: {client: redis}
   }
 })
-const {config} = require('./src/config/config')
 
+// Config
+const {config} = require('./src/config/config')
 // Sessions init, lest take an oppinion why use session later
 fastify
   .register(require('fastify-redis'), {client: redis})
@@ -69,10 +67,13 @@ fastify.register(require('under-pressure'), {
   message: 'Ya know event loop? SINGLE THREAD ASYNCRONOUS!',
   retryAfter: 50
 })
+
+// Register CRSF
+fastify.register(require('./src/plugins/crsf/plugins'))
+
 // Route register here
 // you can had all you routes at one file or separate
 // its up to you
-// TODO: Refactor registering route
 fastify.register(require('./src/services/root'))
 fastify.register(require('./src/services/role'))
 fastify.register(require('./src/services/user'))

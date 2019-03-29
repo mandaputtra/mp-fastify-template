@@ -3,7 +3,13 @@ async function routes(fastify) {
     method: 'GET',
     url: '/',
     handler: (req, reply) => {
-      reply.code(200).send({api: 'ready'})
+      const secret = req.generateSecretCSRF
+      const token = reply.createTokenCSRF(secret)
+      const check = req.checkTokenCSRF(secret, token)
+      console.log(check)
+      reply
+        .code(200)
+        .send({api: 'ready'})
     }
   })
   fastify.route({
