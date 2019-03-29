@@ -18,7 +18,8 @@ async function verifyjwt(fastify) {
 
   fastify.decorate('verifyjwt', async (request, reply) => {
     try {
-      await request.jwtVerify()
+      const decode = await fastify.jwt.verify(request.cookies.tks)
+      console.log(decode)
     } catch (error) {
       reply.code(401).send(error)
     }

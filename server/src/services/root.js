@@ -2,11 +2,8 @@ async function routes(fastify) {
   fastify.route({
     method: 'GET',
     url: '/',
+    preValidation: [fastify.verifyjwt],
     handler: (req, reply) => {
-      const secret = req.generateSecretCSRF
-      const token = reply.createTokenCSRF(secret)
-      const check = req.checkTokenCSRF(secret, token)
-      console.log(check)
       reply
         .code(200)
         .send({api: 'ready'})

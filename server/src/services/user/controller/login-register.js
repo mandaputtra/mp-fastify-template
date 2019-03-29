@@ -21,13 +21,21 @@ async function login(req, reply) {
   }
 
   if (pass) {
+    const secret = req.generateSecretCSRF
+    const tokenCSRF = reply.createTokenCSRF(secret)
     const token = this.jwt.sign({
       userId: user._id,
-      role: user.role
+      role: user.role,
+      tokenCSRF
     })
     user.password = ''
+
+    // Generate session secret for crsf
+    req.session.scrt = secret
     reply
-      .setCookie('tks', token)
+      .setCookie('tks', token, {
+        path: '/'
+      })
       .code(200)
       .send({data: user})
   } else {

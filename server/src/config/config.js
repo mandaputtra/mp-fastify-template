@@ -18,8 +18,8 @@ config.env = env.ENV || 'production'
 
 // JWT config
 config.jwt = {
-  expiresIn: env.JWT_EXPIRESIN || '1d',
-  maxAge: env.JWT_EXPIRESIN || '1d'
+  expiresIn: env.JWT_EXPIRESIN || 10,
+  maxAge: env.JWT_EXPIRESIN || 10
 }
 
 module.exports.config = config

@@ -41,7 +41,7 @@ fastify
   .register(require('fastify-caching'), {cache: abcache})
   .register(require('fastify-server-session'), {
     secretKey: 'kak;ldaposkpodk123-0-0123,m;las;d1312321123', // Really dont forget this.
-    sessionMaxAge: 900000 // 15 minutes in milliseconds
+    sessionMaxAge: 1000 * 60 * 60 * 24 // 1 day in milliseconds
   })
 
 // Cors
