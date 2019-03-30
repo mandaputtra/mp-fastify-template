@@ -37,3 +37,10 @@ The roadmap :
   - [ ] Websockets using primus.io
   
   Thanks hope i'll finish it as fast as I can
+
+#### Stories
+
+This section kind of give me a track on what decision I make when building this app.
+
+- Not RESTfull anymore :( there is an article about how to storing [JWT](https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage) it makes me think and use cookies and sessions instead of use it as usual on `localStorage`
+
