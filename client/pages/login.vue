@@ -33,6 +33,11 @@ export default {
   layout: 'unautorize',
   components: {
     loginBtn
+  },
+  mounted() {
+    this.$axios.get('/').then(res => {
+      console.log(res)
+    })
   }
 }
 </script>

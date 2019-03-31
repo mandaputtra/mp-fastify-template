@@ -22,7 +22,6 @@ module.exports = {
       }
     ]
   },
-
   /*
    ** Customize the progress-bar color
    */
@@ -36,22 +35,20 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/vuetify'],
+  plugins: [
+    '@/plugins/vuetify',
+    '@/plugins/axios'
+  ],
 
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
+    ['@nuxtjs/axios', {
+      baseURL: 'http://localhost:5010'
+    }]
   ],
-  /*
-   ** Axios module configuration
-   */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-  },
-
   /*
    ** Build configuration
    */
