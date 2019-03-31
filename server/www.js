@@ -9,6 +9,9 @@ const fastify = require('fastify')({
   }
 })
 
+//  Register fastiy-sensible errors handling
+fastify.register(require('fastify-sensible'))
+
 function start() {
   fastify.listen(config.port, (err, address) => {
     if (err) {
