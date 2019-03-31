@@ -38,6 +38,12 @@ export default {
   layout: 'unautorize',
   components: {
     registerButton
+  },
+  mounted() {
+    this.$axios
+      .get('/role/menu')
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
   }
 }
 </script>

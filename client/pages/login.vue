@@ -13,7 +13,7 @@
           placeholder="your easy password"
           type="password"
         />
-        <loginBtn class="mt-2" text="login" />
+        <loginBtn class="mt-2" text="login" @action="login" />
         <p class="caption mt-2">
           register
           <nuxt-link to="/register">
@@ -34,10 +34,17 @@ export default {
   components: {
     loginBtn
   },
-  mounted() {
-    this.$axios.get('/').then(res => {
-      console.log(res)
-    })
+  methods: {
+    login() {
+      this.$axios
+        .post('/login', {
+          email: 'hummbpa@mail.com',
+          password: '1234567'
+        })
+        .then(res => {
+          console.log(res)
+        })
+    }
   }
 }
 </script>

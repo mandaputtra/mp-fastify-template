@@ -46,7 +46,8 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     ['@nuxtjs/axios', {
-      baseURL: 'http://localhost:5010'
+      baseURL: 'http://localhost:5010',
+      credentials: true,
     }]
   ],
   /*

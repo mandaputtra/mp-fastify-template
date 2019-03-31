@@ -1,5 +1,11 @@
 <template>
-  <v-btn :block="block" :color="color" :dark="dark" :depressed="depressed">
+  <v-btn
+    :block="block"
+    :color="color"
+    :dark="dark"
+    :depressed="depressed"
+    @click="action"
+  >
     {{ text }}
   </v-btn>
 </template>
@@ -13,6 +19,11 @@ export default {
     depressed: { type: Boolean, default: true },
     dark: { type: Boolean, default: true },
     color: { type: String, default: 'blue' }
+  },
+  methods: {
+    action() {
+      this.$emit('action')
+    }
   }
 }
 </script>
