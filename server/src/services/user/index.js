@@ -27,7 +27,6 @@ async function routes(fastify) {
     url: '/logout',
     handler: UserController.logout
   })
-
 }
 
 module.exports = routes

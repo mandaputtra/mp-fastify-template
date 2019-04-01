@@ -1,10 +1,11 @@
 const bcrypt = require('bcrypt')
 const bcryptP = require('bcrypt-promise')
+const {startOfToday, addDays} = require('date-fns')
 
 const {User} = require('../../../models')
 const {to} = require('../../../plugins')
-const { startOfToday, addDays } = require('date-fns')
-const tokenExpired = addDays(startOfToday(), 1) // one day
+
+const tokenExpired = addDays(startOfToday(), 1) // One day
 
 async function login(req, reply) {
   const {email, password} = req.body
