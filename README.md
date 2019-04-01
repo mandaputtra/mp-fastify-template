@@ -29,7 +29,7 @@ The roadmap :
   - [x] Auth (login/register)
   - [ ] Scalable to the core
   - [ ] User permissions
-  - [ ] Database setup
+  - [x] Database setup
   - [ ] Provide ERD for the database
   - [ ] Provide API to front-end
   - [ ] Docs
