@@ -1,11 +1,8 @@
 const bcrypt = require('bcrypt')
 const bcryptP = require('bcrypt-promise')
-const {startOfToday, addDays} = require('date-fns')
 
 const {User} = require('../../../models')
 const {to} = require('../../../plugins')
-
-const tokenExpired = addDays(startOfToday(), 1) // One day
 
 async function login(req, reply) {
   const {email, password} = req.body
@@ -33,14 +30,11 @@ async function login(req, reply) {
     })
     user.password = ''
     // Generate session secret for crsf
+    // Generate session JWT
     req.session.scrt = secret
+    req.session.jwt = token
+
     reply
-      .setCookie('tks', token, {
-        httpOnly: true,
-        path: '/',
-        expires: tokenExpired,
-        maxAge: 60 * 60 * 24 * 1 // 1 day minutes
-      })
       .code(200)
       .send({data: user})
   } else {
@@ -66,10 +60,21 @@ async function register(req, reply) {
     reply.code(452).send({message: 'user with that email already created'})
   }
 
+  const secret = req.generateSecretCSRF
+  const tokenCSRF = reply.createTokenCSRF(secret)
+
   if (user) {
-    const token = this.jwt.sign({userId: user._id})
+    const token = this.jwt.sign({
+      userId: user._id,
+      role: user.role,
+      tokenCSRF
+    })
+    // Generate session secret for crsf
+    // Generate session JWT
+    req.session.scrt = secret
+    req.session.jwt = token
     delete user.password
-    reply.code(200).send({data: user, token: `Bearer ${token}`})
+    reply.code(200).send({data: user})
   }
 }
 

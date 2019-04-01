@@ -1,14 +1,11 @@
-const {startOfToday} = require('date-fns')
 
 async function logout(req, reply) {
+  // Reset sessions to null for logging out user
   req.session.scrt = {}
+  req.session.jwt = {}
   reply
-    .setCookie('tks', 'invalid', {
-      maxAge: 10,
-      path: '/',
-      expires: startOfToday()
-    })
-    .send('You have been logged out!')
+    .code(200)
+    .send('Success Logged Out!')
 }
 
 module.exports.logout = logout
