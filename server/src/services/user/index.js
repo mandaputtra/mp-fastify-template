@@ -20,6 +20,14 @@ async function routes(fastify) {
     schemaCompiler: schema => data => Joi.validate(data, schema),
     handler: UserController.register
   })
+
+  fastify.route({
+    method: 'GET',
+    preValidation: [fastify.verifyjwt],
+    url: '/logout',
+    handler: UserController.logout
+  })
+
 }
 
 module.exports = routes

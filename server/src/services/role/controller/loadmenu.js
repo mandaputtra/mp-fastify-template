@@ -7,7 +7,7 @@ const {getMenuName} = require('../../../utils')
 
 async function loadmenu(req, reply) {
   // Get user role and appropriate user menu
-  const token = req.headers.authorization.split(' ')[1]
+  const token = req.cookies.tks
   let uid = this.jwt.decode(token)
   uid = uid.payload.userId
   const [errUser, user] = await to(User.findOne({_id: uid}))

@@ -3,6 +3,8 @@ const bcryptP = require('bcrypt-promise')
 
 const {User} = require('../../../models')
 const {to} = require('../../../plugins')
+const { startOfToday, addDays } = require('date-fns')
+const tokenExpired = addDays(startOfToday(), 1) // one day
 
 async function login(req, reply) {
   const {email, password} = req.body
@@ -29,15 +31,14 @@ async function login(req, reply) {
       tokenCSRF
     })
     user.password = ''
-
     // Generate session secret for crsf
-    if (!req.session.scrt) {
-      req.session.scrt = secret
-    }
-
+    req.session.scrt = secret
     reply
       .setCookie('tks', token, {
-        path: '/'
+        httpOnly: true,
+        path: '/',
+        expires: tokenExpired,
+        maxAge: 60 * 60 * 24 * 1 // 1 day minutes
       })
       .code(200)
       .send({data: user})

@@ -49,7 +49,9 @@ fastify
 
 // Cors
 fastify.register(require('fastify-cors'), {
-  origin: true
+  origin: true,
+  credentials: true,
+  preflightContinue: true
 })
 // Helmet
 fastify.register(require('fastify-helmet'), {

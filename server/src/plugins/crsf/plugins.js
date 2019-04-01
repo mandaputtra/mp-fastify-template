@@ -15,7 +15,7 @@ function plugin(fastify, options, next) {
     }
 
     if (!tokens.verify(secret, token)) {
-      return false
+      throw new Error('Not Authorized!')
     }
 
     return true
