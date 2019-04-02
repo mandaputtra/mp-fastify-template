@@ -45,7 +45,7 @@ async function login(req, reply) {
 module.exports.login = login
 
 async function register(req, reply) {
-  const {name, email, password} = req.body
+  const {email, password} = req.body
   // Password hash
   let err
   let hash
@@ -55,7 +55,7 @@ async function register(req, reply) {
   }
 
   let user;
-  [err, user] = await to(User.create({name, email, password: hash}))
+  [err, user] = await to(User.create({email, password: hash}))
   if (err) {
     reply.code(452).send({message: 'user with that email already created'})
   }
@@ -73,7 +73,7 @@ async function register(req, reply) {
     // Generate session JWT
     req.session.scrt = secret
     req.session.jwt = token
-    delete user.password
+    user.password = ''
     reply.code(200).send({data: user})
   }
 }
