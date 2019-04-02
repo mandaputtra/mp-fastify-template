@@ -111,16 +111,23 @@ export default {
       return errors
     }
   },
-  mounted() {},
   methods: {
     async register() {
       this.$v.$touch()
       if (!this.$v.$error) {
         try {
-          await this.$axios.post('/register', {
+          const user = await this.$axios.post('/register', {
             email: this.email,
             password: this.password
           })
+          const response = user.data.data
+          if (user.status === 226) {
+            this.errorServer = response.message
+          } else {
+            this.$store
+              .dispatch('users/addUserData', response)
+              .then(() => this.$router.push('/'))
+          }
         } catch (error) {
           this.errorServer = error
         }

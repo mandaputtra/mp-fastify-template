@@ -89,11 +89,14 @@ export default {
       this.$v.$touch()
       if (!this.$v.$error) {
         try {
-          const logedIn = await this.$axios.post('/login', {
+          const user = await this.$axios.post('/login', {
             email: this.email,
             password: this.password
           })
-          console.log(logedIn)
+          const response = user.data.data
+          this.$store
+            .dispatch('users/addUserData', response)
+            .then(() => this.$router.push('/'))
         } catch (error) {
           this.errorServer = error
         }

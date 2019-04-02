@@ -10,14 +10,14 @@ async function login(req, reply) {
   let pass
   let user
   [err, user] = await to(User.findOne({email}, 'name role email _id password'))
-  if (err) {
-    reply.send('your email and password wrong!')
+  if (err || !user) {
+    return reply.send('your email and password wrong!')
   }
 
   const userPass = user.password;
   [err, pass] = await to(bcryptP.compare(password, userPass))
   if (err) {
-    reply.send('your email and password wrong!')
+    return reply.send('your email and password wrong!')
   }
 
   if (pass) {
@@ -57,7 +57,7 @@ async function register(req, reply) {
   let user;
   [err, user] = await to(User.create({email, password: hash}))
   if (err) {
-    reply.code(452).send({message: 'user with that email already created'})
+    return reply.code(226).send({message: 'User with that email already created'})
   }
 
   const secret = req.generateSecretCSRF

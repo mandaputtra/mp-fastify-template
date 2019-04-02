@@ -8,6 +8,15 @@ async function routes(fastify) {
         .send({api: 'ready'})
     }
   })
+  // To check user authorized or not
+  fastify.route({
+    method: 'GET',
+    url: '/authorize',
+    preValidation: [fastify.verifyjwt],
+    handler: reply => {
+      reply.code(200).send('Authorized!')
+    }
+  })
   fastify.route({
     method: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     url: '*',
