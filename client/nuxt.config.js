@@ -1,13 +1,13 @@
 const pkg = require('./package')
 
 module.exports = {
-  mode: 'spa',
+  mode: 'universal',
 
   /*
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: 'VF-CMS',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -48,7 +48,11 @@ module.exports = {
     ['@nuxtjs/axios', {
       baseURL: 'http://localhost:5010',
       credentials: true,
-    }]
+    }],
+    ['cookie-universal-nuxt', {
+      parseJSON: false,
+      alias: 'cake'
+    }],
   ],
   /*
    ** Build configuration

@@ -2,7 +2,7 @@
   <v-app>
     <drawer :show="drawer" @close="closeDrawer" />
     <appNavbar @openDrawer="drawer = !drawer" />
-    <v-container fluid fill-height>
+    <v-container>
       <v-layout>
         <v-flex>
           <nuxt />

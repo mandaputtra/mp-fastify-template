@@ -94,9 +94,13 @@ export default {
             password: this.password
           })
           const response = user.data.data
-          this.$store
-            .dispatch('users/addUserData', response)
-            .then(() => this.$router.push('/'))
+          if (user.status === 226) {
+            this.errorServer = user.data
+          } else {
+            this.$store
+              .dispatch('users/addUserData', response)
+              .then(() => this.$router.push('/'))
+          }
         } catch (error) {
           this.errorServer = error
         }
