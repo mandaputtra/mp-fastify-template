@@ -45,7 +45,7 @@ fastify
   .register(require('fastify-server-session'), {
     secretKey: 'kak;ldaposkpodk123-0-0123,m;las;d1312321123', // Really dont forget this.
     sessionMaxAge: 1000 * 60 * 60 * 24, // 1 day in milliseconds
-    sessionCookieName: '_gad',
+    sessionCookieName: 'fastify-vfcms',
     cookie: {
       path: '/',
       httpOnly: true
@@ -54,7 +54,9 @@ fastify
 
 // Cors
 fastify.register(require('fastify-cors'), {
-  origin: true,
+  origin: process.env.CLIENT_URI || ['http://localhost:3000'],
+  methods: ['GET', 'PUT', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
   preflightContinue: true
 })

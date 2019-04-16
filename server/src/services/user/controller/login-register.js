@@ -11,13 +11,13 @@ async function login(req, reply) {
   let user
   [err, user] = await to(User.findOne({email}, 'name role email _id password'))
   if (err || !user) {
-    return reply.send('your email and password wrong!')
+    return reply.code(226).send('Your email and password wrong!')
   }
 
   const userPass = user.password;
   [err, pass] = await to(bcryptP.compare(password, userPass))
   if (err) {
-    return reply.send('your email and password wrong!')
+    return reply.code(226).send('Your email and password wrong!')
   }
 
   if (pass) {
@@ -38,7 +38,7 @@ async function login(req, reply) {
       .code(200)
       .send({data: user})
   } else {
-    reply.code(401).send('your email or password wrong!')
+    reply.code(226).send('Your email and password wrong!')
   }
 }
 

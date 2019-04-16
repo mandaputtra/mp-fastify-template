@@ -13,7 +13,7 @@ async function routes(fastify) {
     method: 'GET',
     url: '/authorize',
     preValidation: [fastify.verifyjwt],
-    handler: reply => {
+    handler: (req, reply) => {
       reply.code(200).send('Authorized!')
     }
   })
