@@ -23,12 +23,26 @@ export const mutations = {
 }
 
 export const actions = {
+  auth({ commit }, data) {
+    return this.$axios
+      .get('/authorize')
+      .then(res => {
+        commit(ADD_USER_DATA, res.data.data)
+        return res
+      })
+      .catch(err => {
+        return new Error('Not Authorized')
+      })
+  },
   addUserData({ commit }, data) {
     return new Promise(resolve => {
-      this.$cake.set('_sessions', randomString(), {
-        path: '/',
-        maxAge: 60 * 60 * 24 * 7
-      })
+      const current = this.$cake.get('_sessions')
+      if (!current) {
+        this.$cake.set('_sessions', randomString(), {
+          path: '/',
+          maxAge: 60 * 60 * 24 * 7
+        })
+      }
       commit(ADD_USER_DATA, data)
       resolve()
     })

@@ -1,3 +1,5 @@
+const {User} = require('../models')
+
 async function routes(fastify) {
   fastify.route({
     method: 'GET',
@@ -8,13 +10,15 @@ async function routes(fastify) {
         .send({api: 'ready'})
     }
   })
-  // To check user authorized or not
+  // To check user authorized or not sendback minimal user info
   fastify.route({
     method: 'GET',
     url: '/authorize',
     preValidation: [fastify.verifyjwt],
     handler: (req, reply) => {
-      reply.code(200).send('Authorized!')
+      const {userId} = fastify.jwt.verify(req.session.jwt)
+      User.findOne({_id: userId}, 'role _id email')
+        .then(data => reply.code(200).send({data}))
     }
   })
   fastify.route({

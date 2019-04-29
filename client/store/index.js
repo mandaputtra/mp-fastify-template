@@ -3,6 +3,14 @@ export const state = () => ({})
 
 export const mutations = {}
 
-export const actions = {}
+export const actions = {
+  nuxtServerInit({ dispatch }) {
+    return new Promise((resolve, reject) => {
+      dispatch('users/auth')
+        .then(res => resolve(true))
+        .catch(err => reject(err))
+    })
+  }
+}
 
 export const getters = {}
