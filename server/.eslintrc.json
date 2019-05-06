@@ -1,0 +1,23 @@
+{
+  "env": {
+      "commonjs": true,
+      "es6": true,
+      "node": true
+  },
+  "extends": [
+      "prettier-standard",
+      "standard"
+  ],
+  "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+  },
+  "plugins": ["prettier"],
+  "parserOptions": {
+      "ecmaVersion": 2018
+  },
+  "rules": {
+      "prettier/prettier": "error",
+      "space-before-function-paren": "off"
+  }
+}

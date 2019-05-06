@@ -14,4 +14,3 @@ module.exports = {
   MENU_DELETE: 7,
   MENU_UPDATE: 8
 }
-

@@ -23,4 +23,3 @@ config.jwt = {
 }
 
 module.exports.config = config
-

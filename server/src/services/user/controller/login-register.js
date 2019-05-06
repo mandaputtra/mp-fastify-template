@@ -1,21 +1,23 @@
 const bcrypt = require('bcrypt')
 const bcryptP = require('bcrypt-promise')
 
-const {User} = require('../../../models')
-const {to} = require('../../../plugins')
+const { User } = require('../../../models')
+const { to } = require('../../../plugins')
 
 async function login(req, reply) {
-  const {email, password} = req.body
+  const { email, password } = req.body
   let err
   let pass
   let user
-  [err, user] = await to(User.findOne({email}, 'name role email _id password'))
+  ;[err, user] = await to(
+    User.findOne({ email }, 'name role email _id password')
+  )
   if (err || !user) {
     return reply.code(226).send('Your email and password wrong!')
   }
 
-  const userPass = user.password;
-  [err, pass] = await to(bcryptP.compare(password, userPass))
+  const userPass = user.password
+  ;[err, pass] = await to(bcryptP.compare(password, userPass))
   if (err) {
     return reply.code(226).send('Your email and password wrong!')
   }
@@ -34,9 +36,7 @@ async function login(req, reply) {
     req.session.scrt = secret
     req.session.jwt = token
 
-    reply
-      .code(200)
-      .send({data: user})
+    reply.code(200).send({ data: user })
   } else {
     reply.code(226).send('Your email and password wrong!')
   }
@@ -45,19 +45,21 @@ async function login(req, reply) {
 module.exports.login = login
 
 async function register(req, reply) {
-  const {email, password} = req.body
+  const { email, password } = req.body
   // Password hash
   let err
   let hash
-  [err, hash] = await to(bcrypt.hash(password, 10))
+  ;[err, hash] = await to(bcrypt.hash(password, 10))
   if (err) {
     throw this.httpErrors.internalServerError()
   }
 
-  let user;
-  [err, user] = await to(User.create({email, password: hash}))
+  let user
+  ;[err, user] = await to(User.create({ email, password: hash }))
   if (err) {
-    return reply.code(226).send({message: 'User with that email already created'})
+    return reply
+      .code(226)
+      .send({ message: 'User with that email already created' })
   }
 
   const secret = req.generateSecretCSRF
@@ -74,7 +76,7 @@ async function register(req, reply) {
     req.session.scrt = secret
     req.session.jwt = token
     user.password = ''
-    reply.code(200).send({data: user})
+    reply.code(200).send({ data: user })
   }
 }
 

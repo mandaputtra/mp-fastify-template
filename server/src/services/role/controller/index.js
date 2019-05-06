@@ -1,5 +1,5 @@
-const {create} = require('./create')
-const {loadmenu} = require('./loadmenu')
+const { create } = require('./create')
+const { loadmenu } = require('./loadmenu')
 
 module.exports.RoleController = {
   create,

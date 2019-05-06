@@ -1,23 +1,23 @@
 const menu = require('../menu')
-const {to} = require('../../../plugins')
+const { to } = require('../../../plugins')
 // Models
-const {User} = require('../../../models')
-const {Role} = require('../../../models')
-const {getMenuName} = require('../../../utils')
+const { User } = require('../../../models')
+const { Role } = require('../../../models')
+const { getMenuName } = require('../../../utils')
 
 async function loadmenu(req, reply) {
   // Get user role and appropriate user menu
   const token = req.session.jwt
   let uid = this.jwt.decode(token)
   uid = uid.payload.userId
-  const [errUser, user] = await to(User.findOne({_id: uid}))
+  const [errUser, user] = await to(User.findOne({ _id: uid }))
   if (errUser) {
-    return reply.code(500).send({msg: 'User Not Found!'})
+    return reply.code(500).send({ msg: 'User Not Found!' })
   }
 
-  const [errRole, role] = await to(Role.findOne({name: user.role}))
+  const [errRole, role] = await to(Role.findOne({ name: user.role }))
   if (errRole || role.role.length === 0) {
-    return reply.code(500).send({msg: 'Role Not Found!'})
+    return reply.code(500).send({ msg: 'Role Not Found!' })
   }
 
   if (user.role === 'superadmin') {

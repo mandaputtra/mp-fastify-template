@@ -2,10 +2,13 @@
   "name": "serverofvfcms",
   "version": "1.0.0",
   "description": "a server of vf cms",
+  "repository": {
+    "url": "https://github.com/mandaputtra/vf-cms"
+  },
   "main": "www.js",
   "scripts": {
-    "lint": "xo --ext .js",
-    "lint:fix": "xo --fix --ext .js",
+    "lint": "eslint --ext .js --ignore-path ../.gitignore .",
+    "lint:fix": "eslint --fix --ext .js --ignore-path ../.gitignore .",
     "start": "node www.js",
     "start:debug": "node --inspect www.js",
     "dev": "node dev-server.js"
@@ -54,10 +57,6 @@
       "git add"
     ]
   },
-  "xo": {
-    "space": true,
-    "semicolon": false
-  },
   "devDependencies": {
     "chalk": "^2.4.2",
     "chokidar": "^2.1.5",
@@ -65,6 +64,15 @@
     "lint-staged": "^8.1.5",
     "pino": "^5.12.0",
     "pino-pretty": "^2.6.0",
-    "xo": "^0.24.0"
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-config-prettier-standard": "^2.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^9.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "prettier": "^1.17.0"
   }
 }

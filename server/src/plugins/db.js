@@ -2,15 +2,15 @@ const fastifyPlugin = require('fastify-plugin')
 const mongoose = require('mongoose')
 
 async function dbConnector(fastify, options) {
-  const {url} = options
+  const { url } = options
   delete options.url
 
   mongoose.Promise = global.Promise // Set mongo up to use promises
 
-  const db = await mongoose.connect(
-    url,
-    {useNewUrlParser: true, useCreateIndex: true}
-  )
+  const db = await mongoose.connect(url, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  })
   fastify.decorate('mongo', db)
 }
 

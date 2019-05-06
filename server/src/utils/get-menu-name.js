@@ -1,4 +1,4 @@
-module.exports = function (arrMenu) {
+module.exports = function(arrMenu) {
   const tempMenu = []
   for (let i = 0; i < arrMenu.length; i++) {
     // UWu read menu.js for docs

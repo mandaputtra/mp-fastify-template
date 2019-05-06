@@ -31,17 +31,17 @@ const abcache = require('abstract-cache')({
   useAwait: false,
   driver: {
     name: 'abstract-cache-redis', // Must be installed via `npm install`
-    options: {client: redis}
+    options: { client: redis }
   }
 })
 
 // Config
-const {config} = require('./src/config/config')
+const { config } = require('./src/config/config')
 // Sessions init, lest take an oppinion why use session later
 fastify
-  .register(require('fastify-redis'), {client: redis})
+  .register(require('fastify-redis'), { client: redis })
   .register(require('fastify-cookie'))
-  .register(require('fastify-caching'), {cache: abcache})
+  .register(require('fastify-caching'), { cache: abcache })
   .register(require('fastify-server-session'), {
     secretKey: 'kak;ldaposkpodk123-0-0123,m;las;d1312321123', // Really dont forget this.
     sessionMaxAge: 1000 * 60 * 60 * 24, // 1 day in milliseconds
@@ -62,8 +62,8 @@ fastify.register(require('fastify-cors'), {
 })
 // Helmet
 fastify.register(require('fastify-helmet'), {
-  hidePoweredBy: {setTo: 'Go 1.12.1'},
-  xssFilter: {setOnOldIE: true}
+  hidePoweredBy: { setTo: 'Go 1.12.1' },
+  xssFilter: { setOnOldIE: true }
 })
 // Database registrastion
 fastify.register(require('./src/plugins/db'), {

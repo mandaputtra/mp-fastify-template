@@ -1,10 +1,10 @@
 const fastifyPlugin = require('fastify-plugin')
-const {config} = require('../config/config')
+const { config } = require('../config/config')
 
 async function verifyjwt(fastify) {
   fastify.register(require('fastify-jwt'), {
     secret: 'supersecret',
-    decode: {complete: true},
+    decode: { complete: true },
     sign: {
       issuer: 'api.vfcms.company',
       algorithm: 'HS384',

@@ -1,7 +1,7 @@
 // Contains route and middleware
 const Joi = require('joi')
-const {RoleController} = require('./controller')
-const {create} = require('./validation')
+const { RoleController } = require('./controller')
+const { create } = require('./validation')
 
 async function routes(fastify) {
   fastify.route({
