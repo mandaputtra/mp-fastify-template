@@ -5,11 +5,11 @@
   "repository": {
     "url": "https://github.com/mandaputtra/vf-cms"
   },
-  "main": "www.js",
+  "main": "index.js",
   "scripts": {
     "lint": "eslint --ext .js --ignore-path ../.gitignore .",
     "lint:fix": "eslint --fix --ext .js --ignore-path ../.gitignore .",
-    "start": "node www.js",
+    "start": "node index.js",
     "start:debug": "node --inspect www.js",
     "dev": "node dev-server.js"
   },
@@ -58,12 +58,9 @@
     ]
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "chalk": "^2.4.2",
     "chokidar": "^2.1.5",
-    "husky": "^1.3.1",
-    "lint-staged": "^8.1.5",
-    "pino": "^5.12.0",
-    "pino-pretty": "^2.6.0",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.2.0",
     "eslint-config-prettier-standard": "^2.0.0",
@@ -73,6 +70,11 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
-    "prettier": "^1.17.0"
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "pino": "^5.12.0",
+    "pino-pretty": "^2.6.0",
+    "prettier": "^1.17.0",
+    "supertest": "^4.0.2"
   }
 }

@@ -12,17 +12,6 @@ const fastify = require('fastify')({
 //  Register fastiy-sensible errors handling
 fastify.register(require('fastify-sensible'))
 
-function start() {
-  fastify.listen(config.port, (err, address) => {
-    if (err) {
-      fastify.log.error(err)
-      throw err
-    }
-
-    fastify.log.info(`server listening on ${address}`)
-  })
-}
-
 //  REDIS INIT
 const Redis = require('ioredis')
 
@@ -90,4 +79,4 @@ fastify.register(require('./src/services/root'))
 fastify.register(require('./src/services/role'))
 fastify.register(require('./src/services/user'))
 
-start()
+module.exports = fastify

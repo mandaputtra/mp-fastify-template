@@ -11,9 +11,9 @@ const logger = pino({
   prettyPrint: { colorize: true }
 })
 
-const exec = path.resolve(__dirname + '/www.js')
+const exec = path.resolve(`${__dirname}/index.js`)
 // Initialize watcher.
-const watcher = chokidar.watch(__dirname + '/src', {
+const watcher = chokidar.watch(`${__dirname}/src`, {
   //  eslint-disable-next-line no-useless-escape
   ignored: /[\\\/](node_modules|public|__tests__)[\\\/]/,
   persistent: true,
