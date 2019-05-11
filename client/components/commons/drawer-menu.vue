@@ -3,13 +3,19 @@
     :value="show"
     absolute
     left
-    temporary
+    app
     @input="$emit('close', $event)"
-  />
+  >
+    <headDrawer />
+  </v-navigation-drawer>
 </template>
 
 <script>
+import headDrawer from './drawer/head-drawer'
 export default {
+  components: {
+    headDrawer
+  },
   props: {
     show: { type: Boolean, default: false }
   }

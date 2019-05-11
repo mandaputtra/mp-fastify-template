@@ -1,14 +1,26 @@
 <template>
-  <p class="headline ma-5">
-    {{ $store.state.users.data }}
-    <v-btn>
-      get
-    </v-btn>
-  </p>
+  <v-layout justify-center column fill-height>
+    <breadcrubms />
+    <v-flex>
+      <v-card class="elevation-0">
+        <v-card-title>
+          <p class="caption mb-0 ml-2">
+            APP SUMMARY
+          </p>
+        </v-card-title>
+      </v-card>
+    </v-flex>
+    <v-card />
+  </v-layout>
 </template>
 
 <script>
+import breadcrubms from '../components/commons/breadcrumb'
+
 export default {
-  middleware: 'auth'
+  middleware: 'auth',
+  components: {
+    breadcrubms
+  }
 }
 </script>

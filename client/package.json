@@ -2,6 +2,9 @@
   "name": "client",
   "version": "1.0.0",
   "description": "My supreme cms",
+  "repository": {
+    "url": "https://github.com/mandaputtra/vf-cms"
+  },
   "author": "mandaputtra",
   "private": true,
   "scripts": {
@@ -15,10 +18,12 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.4.1",
+    "apexcharts": "^3.6.10",
     "cookie-universal-nuxt": "^2.0.14",
     "cross-env": "^5.2.0",
     "nuxt": "^2.5.1",
     "secure-random-string": "^1.1.0",
+    "vue-apexcharts": "^1.3.5",
     "vuelidate": "^0.7.4",
     "vuetify": "^1.5.7"
   },

@@ -6,14 +6,6 @@
       </v-btn>
     </template>
     <v-list>
-      <v-list-tile>
-        <v-list-tile-title>
-          <v-layout>
-            <v-icon>account_circle</v-icon>
-            <span class="ml-2">{{ $store.state.users.data.email }}</span>
-          </v-layout>
-        </v-list-tile-title>
-      </v-list-tile>
       <v-list-tile @click="logout">
         <v-list-tile-title>
           <v-layout>

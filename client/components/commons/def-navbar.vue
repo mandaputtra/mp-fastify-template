@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar color="blue" dark fixed app>
+  <v-toolbar color="blue elevation-0" dark fixed app>
     <v-toolbar-side-icon @click.stop="openDrawer" />
     <v-toolbar-title>
       VF<i><b>CMS</b></i>
