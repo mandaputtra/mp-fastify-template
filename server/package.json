@@ -11,7 +11,8 @@
     "lint:fix": "eslint --fix --ext .js --ignore-path ../.gitignore .",
     "start": "node index.js",
     "start:debug": "node --inspect index.js",
-    "dev": "node dev-server.js"
+    "dev": "node dev-server.js",
+    "seeds": "node src/db/seeds"
   },
   "keywords": [
     "fastify",
