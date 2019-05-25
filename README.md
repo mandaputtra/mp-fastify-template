@@ -27,14 +27,12 @@ The roadmap :
 ### Back-end
   - [x] Implement fastify service per module
   - [x] Auth (login/register)
-  - [ ] Scalable to the core
+  - [x] Scalable to the core (docker simply fies it make docs about docker)
   - [ ] User permissions
   - [x] Database setup
-  - [ ] Provide ERD for the database
   - [ ] Provide API to front-end
   - [ ] Docs
-    - [ ] Docs on scaling app (app must scale)
-  - [ ] Websockets using primus.io
+  - [ ] Websockets using primus.io / native ws
   
   Thanks hope i'll finish it as fast as I can
 
