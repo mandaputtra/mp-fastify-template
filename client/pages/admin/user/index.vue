@@ -1,27 +1,24 @@
 <template>
-  <v-layout justify-center column fill-height>
-    <breadcrubms />
-    <v-flex>
-      <v-card class="elevation-0">
-        <v-card-title>
-          <p class="caption mb-0 ml-2">
-            USER
-          </p>
-        </v-card-title>
-      </v-card>
-    </v-flex>
-    <v-card />
-  </v-layout>
+  <v-flex>
+    <v-card class="elevation-0">
+      <v-card-title>
+        <p class="caption mb-0 ml-2">
+          USER LIST
+        </p>
+      </v-card-title>
+      <dataTable />
+    </v-card>
+  </v-flex>
 </template>
 
 <script>
-import breadcrubms from '@/components/commons/breadcrumb'
+import dataTable from '@/components/data-table/data-table'
 
 export default {
   layout: 'admin',
   middleware: 'auth',
   components: {
-    breadcrubms
+    dataTable
   }
 }
 </script>

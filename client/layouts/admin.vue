@@ -4,7 +4,10 @@
     <appNavbar @openDrawer="drawer = !drawer" />
     <v-content>
       <v-container fluid grid-list-sm>
-        <nuxt />
+        <v-layout justify-center column fill-height>
+          <breadcrubms />
+          <nuxt />
+        </v-layout>
       </v-container>
     </v-content>
   </v-app>
@@ -13,10 +16,13 @@
 <script>
 import appNavbar from '@/components/commons/def-navbar'
 import drawer from '@/components/commons/drawer-menu'
+import breadcrubms from '@/components/commons/breadcrumb'
+
 export default {
   components: {
     appNavbar,
-    drawer
+    drawer,
+    breadcrubms
   },
   data: () => {
     return {

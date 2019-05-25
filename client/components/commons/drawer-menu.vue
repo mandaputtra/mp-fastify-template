@@ -8,6 +8,19 @@
   >
     <headDrawer />
     <v-list>
+      <v-list-tile @click="$router.push('/admin')">
+        <v-list-tile-action>
+          <v-icon size="28">
+            dashboard
+          </v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          <v-list-tile-title>
+            Dashboard
+          </v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+
       <v-list-tile @click="$router.push('/admin/user')">
         <v-list-tile-action>
           <v-icon size="28">
