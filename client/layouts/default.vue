@@ -1,32 +1,22 @@
 <template>
-  <v-app>
-    <drawer :show="drawer" @close="closeDrawer" />
-    <appNavbar @openDrawer="drawer = !drawer" />
-    <v-content>
-      <v-container fluid grid-list-sm>
-        <nuxt />
-      </v-container>
-    </v-content>
+  <v-app id="unautorize">
+    <blankNav class="elevation-0" color="blue" />
+    <v-container fluid fill-height>
+      <v-layout align-center justify-center>
+        <v-flex xs12 sm6 md4>
+          <nuxt />
+        </v-flex>
+      </v-layout>
+    </v-container>
   </v-app>
 </template>
 
 <script>
-import appNavbar from '../components/commons/def-navbar'
-import drawer from '../components/commons/drawer-menu'
+import blankNav from '../components/commons/blank-nav'
+
 export default {
   components: {
-    appNavbar,
-    drawer
-  },
-  data: () => {
-    return {
-      drawer: false
-    }
-  },
-  methods: {
-    closeDrawer(value) {
-      this.drawer = value
-    }
+    blankNav
   }
 }
 </script>

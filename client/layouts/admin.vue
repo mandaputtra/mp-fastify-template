@@ -2,20 +2,17 @@
   <v-app>
     <drawer :show="drawer" @close="closeDrawer" />
     <appNavbar @openDrawer="drawer = !drawer" />
-    <v-container fluid fill-height>
-      <v-layout>
-        <v-flex>
-          <nuxt />
-        </v-flex>
-      </v-layout>
-    </v-container>
+    <v-content>
+      <v-container fluid grid-list-sm>
+        <nuxt />
+      </v-container>
+    </v-content>
   </v-app>
 </template>
 
 <script>
 import appNavbar from '../components/commons/def-navbar'
 import drawer from '../components/commons/drawer-menu'
-
 export default {
   components: {
     appNavbar,

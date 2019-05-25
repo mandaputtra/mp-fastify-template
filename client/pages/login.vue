@@ -55,7 +55,6 @@ import { validationMixin } from 'vuelidate'
 import { required, email, minLength } from 'vuelidate/lib/validators'
 
 export default {
-  layout: 'unautorize',
   components: {
     loginBtn
   },
@@ -99,7 +98,7 @@ export default {
           } else {
             this.$store
               .dispatch('users/addUserData', response)
-              .then(() => this.$router.push('/'))
+              .then(() => this.$router.push('/admin'))
           }
         } catch (error) {
           this.errorServer = error
