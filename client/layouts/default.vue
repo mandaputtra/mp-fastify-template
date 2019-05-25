@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import blankNav from '../components/commons/blank-nav'
+import blankNav from '@/components/commons/blank-nav'
 
 export default {
   components: {

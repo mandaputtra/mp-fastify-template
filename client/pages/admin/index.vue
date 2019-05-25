@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import breadcrubms from '../../components/commons/breadcrumb'
+import breadcrubms from '@/components/commons/breadcrumb'
 
 export default {
   layout: 'admin',

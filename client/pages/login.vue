@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import loginBtn from '../components/commons/def-button'
+import loginBtn from '@/components/commons/def-button'
 import { validationMixin } from 'vuelidate'
 import { required, email, minLength } from 'vuelidate/lib/validators'
 

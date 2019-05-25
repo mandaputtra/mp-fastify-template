@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import appNavbar from '../components/commons/def-navbar'
-import drawer from '../components/commons/drawer-menu'
+import appNavbar from '@/components/commons/def-navbar'
+import drawer from '@/components/commons/drawer-menu'
 export default {
   components: {
     appNavbar,
