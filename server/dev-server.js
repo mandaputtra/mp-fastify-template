@@ -22,13 +22,14 @@ const watcher = chokidar.watch(`${__dirname}/src`, {
 
 watcher.once('ready', () => {
   logger.info('=====> Initialize app ... =====> ')
-  const watched = watcher.getWatched()
-  Object.keys(watched).forEach(k => {
-    const values = watched[k]
-    values.forEach(p => {
-      logger.info(path.resolve(k + '/' + p))
-    })
-  })
+  // get watched file
+  // const watched = watcher.getWatched()
+  // Object.keys(watched).forEach(k => {
+  //   const values = watched[k]
+  //   values.forEach(p => {
+  //     logger.info(path.resolve(k + '/' + p))
+  //   })
+  // })
 
   function launch() {
     const k = cp.spawn('node', [exec], {
