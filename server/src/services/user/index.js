@@ -27,6 +27,13 @@ async function routes(fastify) {
     url: '/logout',
     handler: UserController.logout
   })
+
+  fastify.route({
+    method: 'GET',
+    preValidation: [fastify.verifyjwt],
+    url: '/users',
+    handler: UserController.getUserList
+  })
 }
 
 module.exports = routes

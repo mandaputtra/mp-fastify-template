@@ -6,7 +6,12 @@
           USER LIST
         </p>
       </v-card-title>
-      <dataTable />
+      <dataTable
+        :headers="headersUserList"
+        :total="totalUsers"
+        :items="users"
+        :pagination.sync="pagination"
+      />
     </v-card>
   </v-flex>
 </template>
@@ -19,6 +24,37 @@ export default {
   middleware: 'auth',
   components: {
     dataTable
+  },
+  data: () => {
+    return {
+      headersUserList: [
+        { text: 'Email', sortable: true, value: 'name' },
+        { text: 'Role', sortable: true, value: 'role' },
+        { text: 'Joined at', sortable: true, value: 'createdAt' }
+      ],
+      users: [],
+      totalUsers: null,
+      pagination: {}
+    }
+  },
+  watch: {
+    pagination: {
+      handler() {
+        console.log('helllooo')
+      },
+      deep: true
+    }
+  },
+  mounted() {
+    //  get user list
+    this.$axios
+      .get('/users')
+      .then(res => {
+        this.users = res.data.users.docs
+        this.totalUsers = res.data.users.totalDocs
+        console.log(res.data.users)
+      })
+      .catch(err => Error(err))
   }
 }
 </script>

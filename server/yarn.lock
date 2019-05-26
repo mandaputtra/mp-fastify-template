@@ -2598,10 +2598,20 @@ mongodb@3.2.5:
     mongodb-core "3.2.5"
     safe-buffer "^5.1.2"
 
+mongoose-aggregate-paginate-v2@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/mongoose-aggregate-paginate-v2/-/mongoose-aggregate-paginate-v2-1.0.2.tgz#4b1d82c1ecc9879645cfc65609ffec9cb2cac1ef"
+  integrity sha512-iKKtSzmkVMDodZBGiA1AWlOsZ4L3tO144xo1hnF/HcKpIC3Y9o+E1kqonOYymV6IR37oNT4gxAOAyHBia8E/0w==
+
 mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
   integrity sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
+
+mongoose-paginate-v2@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/mongoose-paginate-v2/-/mongoose-paginate-v2-1.3.0.tgz#3bf5c0bde89100e55ac0249db44a5559fa08c423"
+  integrity sha512-u9vNPqSt7wp4wBY50JEpovOodQb8LcyruJQSKi+8ZzRxjHnp88z+DrZkRL3HbjxJ69+UlO2GSflT6BW4Dd1orA==
 
 mongoose@^5.4.20:
   version "5.5.11"

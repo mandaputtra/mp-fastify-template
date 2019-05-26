@@ -3,6 +3,7 @@
 //  not resource wise.
 
 const mongoose = require('mongoose')
+const pagination = require('mongoose-paginate-v2')
 // eslint-disable-next-line new-cap
 const UsersSchema = mongoose.Schema(
   {
@@ -20,4 +21,5 @@ const UsersSchema = mongoose.Schema(
   { timestamps: true }
 )
 
+UsersSchema.plugin(pagination)
 module.exports = mongoose.model('Users', UsersSchema)
