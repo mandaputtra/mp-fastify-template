@@ -1,1 +1,0 @@
-I think ill just use [fastify-sensible](https://github.com/fastify/fastify-sensible)
