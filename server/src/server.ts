@@ -8,13 +8,13 @@ export default function createServer(opts?: Fastify.ServerOptions) {
   configureAuthPlugin(fastify)
 
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-  fastify.get('/', async (request, reply) => {
+  fastify.get('/', async (_request, _reply) => {
     return { hello: 'world' }
   })
 
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-  fastify.get('/twitter', async (request, _reply) => {
-    return { twitterHandle: request.query.handle }
+  fastify.get('/favicon.ico', async (_request, reply) => {
+    reply.code(404).send({ message: 'no favico (ﾉ≧ڡ≦)', status: false })
   })
 
   return fastify

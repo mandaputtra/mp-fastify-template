@@ -46,7 +46,7 @@ Open an **issue** if you'd like to report a bug or a feature. Make sure to write
 
 If you are interested in contributing make sure to follow these practices:
 - Prepend branches with `fix/`, `feature/`, or `docs/` depending on the change being made
-- NPM commands `test`, `lint`, and `build` run without failing. 
+- NPM commands `test`, `lint`, and `build` run without failing.
 - If you are solving an open issue, reference it in the Pull Request description using `Ref #<issue number>`.
 
 ## Jest

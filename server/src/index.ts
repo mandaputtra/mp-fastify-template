@@ -8,11 +8,13 @@ const argv = yargsParser(process.argv.slice(2))
 const log = typeof argv.log === 'boolean' ?
   argv.log : JSON.stringify(process.env.NODE_ENV) === 'development'
 
-const port: number = parseInt(JSON.stringify(process.env.PORT), 10) || 3000
+const port: number = Number(process.env.PORT) || 3000
 
 const start = async () => {
   const fastify = createServer({
-    logger: log
+    logger: {
+      prettyPrint: log
+    }
   })
 
   try {
