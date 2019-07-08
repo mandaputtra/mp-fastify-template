@@ -2,7 +2,7 @@ import { FastifyInstance } from 'fastify'
 import * as fastifyJWT from 'fastify-jwt'
 
 export function configureAuthPlugin(fastify: FastifyInstance) {
-  fastify.register(fastifyJWT, { secret: 'supersecret' })
+  fastify.register(fastifyJWT, { secret: process.env.JWT_SECRET || 'supersecret' })
 
   fastify.post('/auth/issueToken', (request, reply) => {
     const token = fastify.jwt.sign({ payload: request.body.user })

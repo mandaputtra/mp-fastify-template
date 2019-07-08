@@ -14,7 +14,8 @@
     "rules": {
         "no-console": "warn",
         "@typescript-eslint/indent": ["error", 2],
-        "semi": "error",
-        "@typescript-eslint/explicit-function-return-type": "off"
+        "semi": ["error", "never"],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "quotes": ["error", "single"]
     }
 }

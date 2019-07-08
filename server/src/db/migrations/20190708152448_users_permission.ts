@@ -1,8 +1,5 @@
 import * as Knex from 'knex'
 
-exports.up = (knex: Knex) => up(knex)
-exports.down = (knex: Knex) => down(knex)
-
 function up(knex: Knex) {
   return knex.schema.createTable('users_permission', (table) => {
     table.increments()
@@ -14,3 +11,6 @@ function up(knex: Knex) {
 function down(knex: Knex) {
   return knex.schema.dropTable('users_permission')
 }
+
+exports.up = (knex: Knex) => up(knex)
+exports.down = (knex: Knex) => down(knex)

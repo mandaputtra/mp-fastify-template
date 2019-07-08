@@ -16,7 +16,7 @@ test('should return hello world', async () => {
 
 test('should return false on favico.ico', async () => {
   try {
-    const response = await fastify.inject({ method: 'GET', url: `/favicon.ico` })
+    const response = await fastify.inject({ method: 'GET', url: '/favicon.ico' })
     expect(JSON.parse(response.payload)).toEqual({ status: false })
   } catch (error) {
     expect(error).toBeFalsy()

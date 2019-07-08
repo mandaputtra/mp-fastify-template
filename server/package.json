@@ -13,6 +13,7 @@
     "dev": "concurrently \"npm run build:watch\" \"npm run start:watch\"",
     "install:ci": "npm ci",
     "lint": "eslint '{src,tests}/**/*.ts'",
+    "lint:fix": "eslint --fix '{src,tests}/**/*.ts'",
     "start": "node lib/index.js",
     "start:watch": "nodemon lib/index.js --log",
     "test": "jest --config jest/test.config.json",
