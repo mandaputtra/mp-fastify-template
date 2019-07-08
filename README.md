@@ -41,4 +41,5 @@ This section kind of give me a track on what decision I make when building this 
 - Not RESTfull anymore :( there is an article about how to storing [JWT](https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage) it makes me think and use cookies and sessions instead of use it as usual on `localStorage`
 
 - I'm using [Yarn](https://yarnpkg.com/en/) its still faster thatn NPM so yeah...
-- Long not updated! Changed database to SQL based! Postgress
+- Long not updated! Changed database to SQL based! Postgress\
+- I decided to throw auth on localStorage, instead of cookies, more reliable instead of cookies.
