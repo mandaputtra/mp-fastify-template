@@ -40,6 +40,51 @@ Matterhorn implements example usage of both command line arguments and environme
 
 Environment variables work in a similar way to command line arguments. They can be set in multiple ways depending on the terminal and operating system you are using. In a bash terminal you can specify environment variables as you use any of the above mentioned scripts by prepending the assignment to the command. For example, this project has the *PORT* environment variable enabled. In a bash terminal run `PORT=8080 npm run start` to run the API on port 8080.
 
+## Migration and Database
+
+First of all you must create knexfile.ts using `node_modules/.bin/knex init`, your knex_file will be like this :
+
+```js
+import {
+  Config
+} from 'knex'
+
+import * as path from 'path'
+
+const BASE_PATH = path.join(__dirname, 'src', 'db')
+
+module.exports = {
+  test: {
+    client: 'pg',
+    connection: {
+      database: '2019_vfcms',
+      user: 'postgres',
+      password: 'postgres'
+    },
+    migrations: {
+      directory: path.join(BASE_PATH, 'migrations'),
+    },
+    seeds: {
+      directory: path.join(BASE_PATH, 'seeds'),
+    },
+  },
+  development: {
+    client: 'pg',
+    connection: {
+      database: '2019_vfcms',
+      user: 'postgres',
+      password: 'postgres'
+    },
+    migrations: {
+      directory: path.join(BASE_PATH, 'migrations'),
+    },
+    seeds: {
+      directory: path.join(BASE_PATH, 'seeds'),
+    },
+  }
+}
+```
+
 ## Contributing
 
 Open an **issue** if you'd like to report a bug or a feature. Make sure to write a detailed description and indicate if you will or will not be resolving the issue yourself.
