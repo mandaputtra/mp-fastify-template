@@ -8,6 +8,8 @@ function up(knex: Knex) {
     table.string('first_name').notNullable()
     table.string('last_name').notNullable()
     table.integer('role').notNullable().references('id').inTable('roles')
+    table.timestamp('created_at').defaultTo(knex.fn.now())
+    table.timestamp('updated_at').defaultTo(knex.fn.now())
   })
 }
 

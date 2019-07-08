@@ -9,7 +9,7 @@ export default function createServer(opts?: Fastify.ServerOptions) {
 
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   fastify.get('/', async (_request, _reply) => {
-    return { hello: 'world' }
+    return { message: 'VF-CMS server is up!', success: true }
   })
 
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
