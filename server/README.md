@@ -53,7 +53,7 @@ import * as path from 'path'
 
 const BASE_PATH = path.join(__dirname, 'src', 'db')
 
-module.exports = {
+export default {
   test: {
     client: 'pg',
     connection: {
