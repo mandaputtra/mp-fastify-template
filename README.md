@@ -43,3 +43,4 @@ This section kind of give me a track on what decision I make when building this 
 - I'm using [Yarn](https://yarnpkg.com/en/) its still faster thatn NPM so yeah...
 - Long not updated! Changed database to SQL based! Postgress\
 - I decided to throw auth on localStorage, instead of cookies, more reliable instead of cookies.
+- **I'm writing new one on develop-sql branch with SQL databases instead of no-SQL**
