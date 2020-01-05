@@ -7,12 +7,12 @@
     "test": "jest test/*.js",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "lint": "eslint --ignore-path ../.gitignore .",
-    "lint:fix": "eslint --fix --ignore-path ../.gitignore ."
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint:fix": "eslint --fix --ignore-path .gitignore ."
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pnpm run lint:fix"
+      "pre-commit": "npm run lint:fix"
     }
   },
   "repository": {
@@ -32,27 +32,24 @@
   },
   "homepage": "https://github.com/mandaputtra/osps#readme",
   "dependencies": {
-    "dotenv": "^8.1.0",
-    "fastify": "^2.9.0",
-    "knex": "^0.19.4",
-    "objection": "^1.6.11",
-    "pg": "^7.12.1"
+    "dotenv": "^8.2.0",
+    "fastify": "^2.11.0",
+    "knex": "^0.20.6",
+    "objection": "^2.0.10",
+    "pg": "^7.17.0"
   },
   "devDependencies": {
-    "eslint": "^6.5.1",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-config-prettier-standard": "^3.0.1",
+    "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.17.0",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jest": "^23.3.0",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "husky": "^3.0.8",
+    "husky": "^3.1.0",
     "jest": "^24.9.0",
-    "pino-pretty": "^3.2.1",
-    "prettier": "^1.18.2",
+    "pino-pretty": "^3.5.0",
+    "prettier": "^1.19.1",
     "prettier-config-standard": "^1.0.1"
   }
 }
