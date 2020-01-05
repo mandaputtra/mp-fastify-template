@@ -4,9 +4,9 @@
   "description": "Open Source Point Management System's",
   "main": "index.js",
   "scripts": {
-    "test": "jest test/*.js",
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "test": "NODE_ENV=test jest test/*.js",
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ignore-path .gitignore ."
   },
