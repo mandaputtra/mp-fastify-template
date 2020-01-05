@@ -19,6 +19,12 @@
     "type": "git",
     "url": "git+https://github.com/mandaputtra/osps.git"
   },
+  "nodemonConfig": {
+    "ignore": [
+      "public/**",
+      "*.md"
+    ]
+  },
   "keywords": [
     "point-system",
     "point-management",
