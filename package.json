@@ -1,7 +1,7 @@
 {
-  "name": "osps",
-  "version": "0.0.1",
-  "description": "Open Source Point Management System's",
+  "name": "mp-fastify-template",
+  "version": "1.0.0",
+  "description": "A fastify starter template",
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test jest test/*.js",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mandaputtra/osps.git"
+    "url": "git+https://github.com/mandaputtra/mp-fastify-template.git"
   },
   "nodemonConfig": {
     "ignore": [
@@ -34,9 +34,9 @@
   "author": "mandaputtra",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mandaputtra/osps/issues"
+    "url": "https://github.com/mandaputtra/mp-fastify-template/issues"
   },
-  "homepage": "https://github.com/mandaputtra/osps#readme",
+  "homepage": "https://github.com/mandaputtra/mp-fastify-template#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
     "fastify": "^2.11.0",
